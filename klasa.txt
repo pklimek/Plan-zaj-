@@ -1,0 +1,9 @@
+#include<iostream>
+
+class Plan
+{
+	private:
+		//tu jakaœ tablica dwuwymiarowa
+	public:
+		//pare funkcji (dodaj element, wyœwietl element, zmieñ element)
+}
