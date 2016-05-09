@@ -7,6 +7,7 @@
 using namespace std;
 
 
+
 class Objekt
 {
 	string nazwaKlasy;
@@ -14,16 +15,19 @@ class Objekt
 	string nauczyciel;
 	string przedmiot;
 public:
+	Objekt (void);														//konstruktor domyœlny
 	Objekt (string l, int sala, string prowadzacy, string k);			//konstruktor wstawiaj¹cy dane do objektu "objekt"
-	void wyswietl (void);												//Funkcja sk³adowa wypisuj¹ca zawartoœæ objektu "Objekt"
+	void wyswietl (void);											//Funkcja sk³adowa wypisuj¹ca zawartoœæ objektu "Objekt"
 	
 };
 
 class Godzina
 {
-	Objekt * tablica;
+	int ile;
 public:
-	//Godzina (int i);
+	Objekt *tablica;
+	Godzina (int i);
+	void wyswietl (void);
 };
 
 
