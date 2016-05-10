@@ -6,7 +6,7 @@
 
 using namespace std;
 
-
+int ileKlas;										//trzeba wpisaæ wartoœæ na samym pocz¹tku programu
 
 class Objekt
 {
@@ -22,12 +22,13 @@ public:
 };
 
 class Godzina
-{
-	int ile;
+{	
+	Objekt *tablica;													
 public:
-	Objekt *tablica;
-	Godzina (int i);
+
+	Godzina (void);
 	void wyswietl (void);
+	~Godzina (void);
 };
 
 
@@ -35,6 +36,8 @@ class Plan
 {
 	Godzina ** tydzien;
 public:
+	Plan (void);
+	~Plan (void);
 };
 
 

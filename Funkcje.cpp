@@ -2,9 +2,9 @@
 #include <string.h>
 #include "Header.h"
 
+extern int ileKlas;
 
-
-Objekt::Objekt (string l, int sala, string prowadzacy, string k)		//definicja konstruktora 
+Objekt::Objekt (string l, int sala, string prowadzacy, string k)		//definicja konstruktora
 {
 	nazwaKlasy = l;
 	numerSali = sala;
@@ -20,13 +20,12 @@ void Objekt::wyswietl(void)												//definicja funckji
 	cout << "Przedmiot: " << przedmiot << endl;
 }
 
-Godzina::Godzina(int i) 											//definicja konstruktora
+Godzina::Godzina (void)					
 {
-	tablica = new Objekt[i] ;
-	ile = i;
-}
+	tablica = new Objekt[ileKlas] ;
+} 
 
-Objekt::Objekt(void)												//definicja konstruktora domyœlnego
+Objekt::Objekt(void)
 {
 	nazwaKlasy = ""; 
 	numerSali = 0;
@@ -36,9 +35,30 @@ Objekt::Objekt(void)												//definicja konstruktora domyœlnego
 
 void Godzina::wyswietl (void)
 {
-	for (int k = 0; k < ile; k++)
+	for (int k = 0; k < ileKlas; k++)
 	{
-		cout << "Godzina: " << k + 1 << endl;						//Ta funkcja jeszcze nie do koñca dzia³a
+		cout << "Godzina: " << k + 1 << endl;
 		tablica[k].wyswietl ();
 	}
 }
+
+Godzina::~Godzina(void)
+{
+	delete [] tablica;
+}
+
+Plan::Plan (void)
+{
+	tydzien = new Godzina *[5];							//5 dni tygodnia
+	for (int i; i < 8; i++)
+		tydzien [i] = new Godzina[8];					//maksymalnie 8 godzin w tygodniu
+}
+
+Plan::~Plan(void)
+{
+	for (int i; i<8; i++)
+		delete [] tydzien [i];
+	delete [] tydzien;
+}
+
+
