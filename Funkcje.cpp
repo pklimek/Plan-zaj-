@@ -25,20 +25,18 @@ Godzina::Godzina (void)
 	tablica = new Objekt *[ileKlas] ;
 } 
 
-Objekt::Objekt(void)
-{
-	nazwaKlasy = ""; 
-	numerSali = 0;
-	nauczyciel = "";
-	przedmiot = "";
-} 
+
+
 
 void Godzina::wyswietl (void)
 {
 	for (int k = 0; k < ileKlas; k++)
 	{
-		cout << "Godzina: " << k + 1 << endl;
-		tablica[k] -> wyswietl ();
+		if (tablica[k] != NULL)
+		{
+			cout << "Godzina: " << k + 1 << endl;
+			tablica[k] -> wyswietl ();
+		}
 	}
 }
 
@@ -60,5 +58,19 @@ Plan::~Plan(void)
 		delete [] tydzien [i];
 	delete [] tydzien;
 }
+
+void Godzina::przypisz (Objekt & a)
+{
+	for (int k = 0; k < ileKlas; k++)
+	{
+		if (tablica[k] == NULL)
+		{
+			tablica[k] = &a;
+			break;
+		}
+	}
+}
+		
+	
 
 
