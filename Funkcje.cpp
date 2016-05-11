@@ -2,7 +2,7 @@
 #include <string.h>
 #include "Header.h"
 
-extern int ileKlas;
+
 
 Objekt::Objekt (string l, int sala, string prowadzacy, string k)		//definicja konstruktora
 {
@@ -22,7 +22,7 @@ void Objekt::wyswietl(void)												//definicja funckji
 
 Godzina::Godzina (void)					
 {
-	tablica = new Objekt[ileKlas] ;
+	tablica = new Objekt *[ileKlas] ;
 } 
 
 Objekt::Objekt(void)
@@ -38,7 +38,7 @@ void Godzina::wyswietl (void)
 	for (int k = 0; k < ileKlas; k++)
 	{
 		cout << "Godzina: " << k + 1 << endl;
-		tablica[k].wyswietl ();
+		tablica[k] -> wyswietl ();
 	}
 }
 
@@ -49,9 +49,9 @@ Godzina::~Godzina(void)
 
 Plan::Plan (void)
 {
-	tydzien = new Godzina *[5];							//5 dni tygodnia
+	tydzien = new Godzina **[5];							//5 dni tygodnia
 	for (int i; i < 8; i++)
-		tydzien [i] = new Godzina[8];					//maksymalnie 8 godzin w tygodniu
+		tydzien [i] = new Godzina *[8];					//maksymalnie 8 godzin w tygodniu
 }
 
 Plan::~Plan(void)

@@ -6,7 +6,6 @@
 
 using namespace std;
 
-int ileKlas;										//trzeba wpisaæ wartoœæ na samym pocz¹tku programu
 
 class Objekt
 {
@@ -23,7 +22,8 @@ public:
 
 class Godzina
 {	
-	Objekt *tablica;													
+	int ileKlas;
+	Objekt **tablica;												//Tablica wskaŸników na "Objekt"			
 public:
 
 	Godzina (void);
@@ -34,7 +34,7 @@ public:
 
 class Plan
 {
-	Godzina ** tydzien;
+	Godzina *** tydzien;										//Dwuwymiarowa tablica wskaŸników na "Godzina"
 public:
 	Plan (void);
 	~Plan (void);
