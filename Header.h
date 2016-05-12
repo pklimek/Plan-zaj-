@@ -29,6 +29,7 @@ public:
 	void wyswietl (void);
 	void przypisz (Objekt & a);
 	~Godzina (void);
+	void ustaw (int a) { ileKlas = a;}
 };
 
 
@@ -39,6 +40,7 @@ public:
 	Plan (void);
 	~Plan (void);
 };
+
 
 
 

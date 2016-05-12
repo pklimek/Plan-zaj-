@@ -23,6 +23,8 @@ void Objekt::wyswietl(void)												//definicja funckji
 Godzina::Godzina (void)					
 {
 	tablica = new Objekt *[ileKlas] ;
+	for (int k = 0; k < ileKlas; k++)
+		tablica [k] = NULL;
 } 
 
 
@@ -71,6 +73,6 @@ void Godzina::przypisz (Objekt & a)
 	}
 }
 		
-	
+
 
 
