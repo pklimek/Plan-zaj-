@@ -25,11 +25,10 @@ class Godzina
 	Objekt **tablica;												//Tablica wskaŸników na "Objekt"			
 public:
 
-	Godzina (void);
+	Godzina (int a);
 	void wyswietl (void);
 	void przypisz (Objekt & a);
 	~Godzina (void);
-	void ustaw (int a) { ileKlas = a;}
 };
 
 
@@ -39,6 +38,8 @@ class Plan
 public:
 	Plan (void);
 	~Plan (void);
+	void wpisz (int dzien, int godzina, int ileKlas);
+	void wyswietl (int dzien, int godzina);
 };
 
 
