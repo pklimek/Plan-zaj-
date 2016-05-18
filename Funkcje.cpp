@@ -48,15 +48,15 @@ Godzina::~Godzina(void)
 	delete [] tablica;
 }
 
-Plan::Plan (void)
+Plan::Plan ()
 {
 	tydzien = new Godzina **[5];							//5 dni tygodnia
 	for (int i; i < 5; i++)
 	{
-		tydzien [i] = new Godzina *[8];
+		tydzien [i] = new Godzina *[8];						//maksymalnie 8 godzin dziennie
 		for (int k = 0; k < 8; k++)
 			tydzien [i][k] = NULL;
-	}					//maksymalnie 8 godzin dziennie
+	}					
 }
 
 Plan::~Plan(void)
@@ -84,9 +84,9 @@ void Plan::wyswietl (int dzien, int godzina)
 	tydzien[dzien - 1][ godzina - 1] -> wyswietl();
 }
 
-void Plan::wpisz (int dzien, int godzina, Godzina * a)
+void Plan::wpisz (int dzien, int godzina, int ileKlas)
 {
-	tydzien[dzien - 1][godzina - 1] = a;
+	tydzien[dzien - 1][godzina - 1] = new Godzina(ileKlas);
 }
 
 bool Plan::sprawdzNull (int dzien, int godzina)
@@ -100,36 +100,38 @@ bool Plan::sprawdzNull (int dzien, int godzina)
 void dodajZajecia (Plan & lekcje, int ileKlas)
 {
 	string nazwa;
+	int dzien;
 	int godzina;
-	Godzina * wsk;
-	wsk = new Godzina(ileKlas);
 	cout << "Podaj dzieñ(pon, wt, sr, czw, pt):" << endl;
 	cin >> nazwa;
 	cout << "Podaj godzinê(1 - 8):" << endl;
 	cin >> godzina;
 	if (nazwa == "pon")
 	{
-		if (lekcje.sprawdzNull(1, godzina));
-			lekcje.wpisz(1, godzina, wsk);
+		if (lekcje.sprawdzNull(1, godzina))
+			lekcje.wpisz(1, godzina, ileKlas);
 	}
 	if (nazwa == "wt")
 	{
-		if (lekcje.sprawdzNull(2, godzina));
-			lekcje.wpisz(2, godzina, wsk);
+		if (lekcje.sprawdzNull(2, godzina))
+			lekcje.wpisz(2, godzina, ileKlas);
 	}
 	if (nazwa == "sr")
 	{
-		if (lekcje.sprawdzNull(3, godzina));
-			lekcje.wpisz(3, godzina, wsk);
+		if (lekcje.sprawdzNull(3, godzina))
+			lekcje.wpisz(3, godzina, ileKlas);
 	}
 	if (nazwa == "czw")
 	{
-		if (lekcje.sprawdzNull(4, godzina));
-			lekcje.wpisz(4, godzina, wsk);
+		if (lekcje.sprawdzNull(4, godzina))
+			lekcje.wpisz(4, godzina, ileKlas);
 	}
 	if (nazwa == "pt")
 	{
-		if (lekcje.sprawdzNull(5, godzina));
-			lekcje.wpisz(5, godzina, wsk);
+		if (lekcje.sprawdzNull(5, godzina))
+			lekcje.wpisz(5, godzina, ileKlas);
 	}
 }
+
+
+

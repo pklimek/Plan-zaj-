@@ -22,10 +22,13 @@ int main()
 			case 1:
 				dodajZajecia(lekcje, ileKlas);
 				break;
+			case 2:
+				
+				break;
 			case 0:
 				return 0;
 		}
 	}
 
-
+	
 }

@@ -38,12 +38,11 @@ class Plan
 public:
 	Plan (void);
 	~Plan (void);
-	void wpisz (int dzien, int godzina, Godzina * a);
+	void wpisz (int dzien, int godzina, int ileKlas);
 	void wyswietl (int dzien, int godzina);
 	bool sprawdzNull (int dzien, int godzina);
 };
 
 void dodajZajecia (Plan & lekcje, int ileKlas);
-
 
 #endif
