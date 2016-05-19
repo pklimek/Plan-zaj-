@@ -73,7 +73,7 @@ void Godzina::przypisz (Objekt & a)
 		if (tablica[k] == NULL)
 		{
 			tablica[k] = &a;
-			break;
+			return;
 		}
 	}
 }
@@ -84,10 +84,47 @@ void Plan::wyswietl (int dzien, int godzina)
 	tydzien[dzien - 1][ godzina - 1] -> wyswietl();
 }
 
-void Plan::wpisz (int dzien, int godzina, int ileKlas)
+void Plan::wpiszGodzine (int dzien, int godzina, int ileKlas)
 {
-	tydzien[dzien - 1][godzina - 1] = new Godzina(ileKlas);
+	if (tydzien [dzien - 1][godzina - 1] == NULL)
+		tydzien[dzien - 1][godzina - 1] = new Godzina(ileKlas);
 }
+
+void Plan::wpiszObjekt (int dzien, int godzina, int ileKlas)
+{
+	if (tydzien [dzien - 1][godzina - 1] != NULL)
+		(*tydzien[dzien - 1][godzina - 1]).wpiszObjekt(ileKlas);
+	
+} 
+
+
+void Godzina::wpiszObjekt (int ileKlas)
+{
+	int sala;
+	string prowadzacy, klasa, przedmiot;
+	int i = 0;
+	if (tablica[i] == NULL && i < ileKlas)
+	{
+		cout << "Podaj klasê dla której chcesz wpisaæ zajêcia:";
+		cin >> klasa;
+		cout << "Podaj przedmiot:";
+		cin >> przedmiot;
+		cout << "Podaj salê w której odbêd¹ siê zajêcia:";
+		cin >> sala;
+		cout << "Podaj prowadz¹cego:";
+		cin >> prowadzacy;
+		tablica [i] = new Objekt(klasa, sala, prowadzacy, przedmiot);
+		return ;
+	}
+	i++;
+	if (i >= ileKlas)
+	{
+		cout << "Wszystkie Klasy maj¹ w tym czasie zajêcia" << endl;
+		return ;
+	}
+}
+
+
 
 bool Plan::sprawdzNull (int dzien, int godzina)
 {
@@ -108,29 +145,26 @@ void dodajZajecia (Plan & lekcje, int ileKlas)
 	cin >> godzina;
 	if (nazwa == "pon")
 	{
-		if (lekcje.sprawdzNull(1, godzina))
-			lekcje.wpisz(1, godzina, ileKlas);
+		dzien = 1;
 	}
 	if (nazwa == "wt")
 	{
-		if (lekcje.sprawdzNull(2, godzina))
-			lekcje.wpisz(2, godzina, ileKlas);
+		dzien = 2;
 	}
 	if (nazwa == "sr")
 	{
-		if (lekcje.sprawdzNull(3, godzina))
-			lekcje.wpisz(3, godzina, ileKlas);
+		dzien = 3;
 	}
 	if (nazwa == "czw")
 	{
-		if (lekcje.sprawdzNull(4, godzina))
-			lekcje.wpisz(4, godzina, ileKlas);
+		dzien = 4;
 	}
 	if (nazwa == "pt")
 	{
-		if (lekcje.sprawdzNull(5, godzina))
-			lekcje.wpisz(5, godzina, ileKlas);
+		dzien = 5;
 	}
+	lekcje.wpiszGodzine(dzien, godzina, ileKlas);
+	lekcje.wpiszObjekt (dzien, godzina, ileKlas);
 }
 
 
