@@ -37,7 +37,6 @@ void Godzina::wyswietl (void)
 	{
 		if (tablica[k] != NULL)
 		{
-			cout << "Godzina: " << k + 1 << endl;
 			tablica[k] -> wyswietl ();
 		}
 	}
@@ -61,8 +60,8 @@ Plan::Plan ()
 
 Plan::~Plan(void)
 {
-	for (int i; i<5; i++)
-		delete [] tydzien [i];
+	for (int i = 0; i<5; i++)
+		delete tydzien [i];
 	delete [] tydzien;
 }
 
@@ -166,6 +165,16 @@ void dodajZajecia (Plan & lekcje, int ileKlas)
 	lekcje.wpiszGodzine(dzien, godzina, ileKlas);
 	lekcje.wpiszObjekt (dzien, godzina, ileKlas);
 }
+	
 
-
+void wyswietlPlan(Plan & lekcje)
+{
+	for (int k = 0; k < 5; k++)
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			lekcje.wyswietl(k + 1, i + 1);
+		}
+	}
+}
 

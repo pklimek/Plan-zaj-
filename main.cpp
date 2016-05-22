@@ -23,7 +23,7 @@ int main()
 				dodajZajecia(lekcje, ileKlas);
 				break;
 			case 2:
-				
+				wyswietlPlan(lekcje);
 				break;
 			case 0:
 				return 0;

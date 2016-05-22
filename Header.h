@@ -46,6 +46,6 @@ public:
 };
 
 void dodajZajecia (Plan & lekcje, int ileKlas);
-
+void wyswietlPlan (Plan & lekcje);
 
 #endif
