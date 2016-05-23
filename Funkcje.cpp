@@ -14,10 +14,10 @@ Objekt::Objekt (string l, int sala, string prowadzacy, string k)		//definicja ko
 
 void Objekt::wyswietl(void)												//definicja funckji
 {
-	cout << "Klasa: " << nazwaKlasy << endl;
-	cout << "Sala: " << numerSali << endl;
-	cout << "Prowadz¹cy: " << nauczyciel << endl;
-	cout << "Przedmiot: " << przedmiot << endl;
+	cout << "Klasa: " << nazwaKlasy;
+	cout << "	Sala: " << numerSali;
+	cout << "	Prowadz¹cy: " << nauczyciel;
+	cout << "	Przedmiot: " << przedmiot << endl;
 }
 
 Godzina::Godzina (int a)					
@@ -80,7 +80,8 @@ void Godzina::przypisz (Objekt & a)
 
 void Plan::wyswietl (int dzien, int godzina)
 {
-	tydzien[dzien - 1][ godzina - 1] -> wyswietl();
+	if (tydzien[dzien - 1][godzina - 1] != NULL)
+		tydzien[dzien - 1][ godzina - 1] -> wyswietl();
 }
 
 void Plan::wpiszGodzine (int dzien, int godzina, int ileKlas)

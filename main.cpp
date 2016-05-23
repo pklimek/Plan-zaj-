@@ -24,6 +24,8 @@ int main()
 				break;
 			case 2:
 				wyswietlPlan(lekcje);
+				cout << endl;
+				system("pause");
 				break;
 			case 0:
 				return 0;
