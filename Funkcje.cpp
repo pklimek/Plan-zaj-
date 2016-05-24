@@ -20,13 +20,13 @@ void Objekt::wyswietl(void)												//definicja funckji
 	cout << "	Przedmiot: " << przedmiot << endl;
 }
 
-Godzina::Godzina (int a)					
+Godzina::Godzina (int a)
 {
 	ileKlas = a;
 	tablica = new Objekt *[ileKlas] ;
 	for (int k = 0; k < ileKlas; k++)
 		tablica [k] = NULL;
-} 
+}
 
 
 
@@ -55,7 +55,7 @@ Plan::Plan ()
 		tydzien [i] = new Godzina *[8];						//maksymalnie 8 godzin dziennie
 		for (int k = 0; k < 8; k++)
 			tydzien [i][k] = NULL;
-	}					
+	}
 }
 
 Plan::~Plan(void)
@@ -76,7 +76,7 @@ void Godzina::przypisz (Objekt & a)
 		}
 	}
 }
-		
+
 
 void Plan::wyswietl (int dzien, int godzina)
 {
@@ -94,8 +94,8 @@ void Plan::wpiszObjekt (int dzien, int godzina, int ileKlas)
 {
 	if (tydzien [dzien - 1][godzina - 1] != NULL)
 		(*tydzien[dzien - 1][godzina - 1]).wpiszObjekt(ileKlas);
-	
-} 
+
+}
 
 
 void Godzina::wpiszObjekt (int ileKlas)
@@ -166,7 +166,7 @@ void dodajZajecia (Plan & lekcje, int ileKlas)
 	lekcje.wpiszGodzine(dzien, godzina, ileKlas);
 	lekcje.wpiszObjekt (dzien, godzina, ileKlas);
 }
-	
+
 
 void wyswietlPlan(Plan & lekcje)
 {
@@ -178,4 +178,5 @@ void wyswietlPlan(Plan & lekcje)
 		}
 	}
 }
+
 
