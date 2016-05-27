@@ -44,7 +44,8 @@ void Godzina::wyswietl (void)
 
 Godzina::~Godzina(void)
 {
-	delete [] tablica;
+	if (tablica != NULL)
+		delete [] tablica;
 }
 
 Plan::Plan ()
@@ -61,7 +62,10 @@ Plan::Plan ()
 Plan::~Plan(void)
 {
 	for (int i = 0; i<5; i++)
-		delete tydzien [i];
+	{
+		if (tydzien[i] != NULL)
+			delete tydzien [i];
+	}
 	delete [] tydzien;
 }
 
@@ -145,13 +149,13 @@ void dodajZajecia (Plan & lekcje, int ileKlas)
 	cin >> godzina;
 	if (nazwa == "pon")
 		dzien = 1;
-	if (nazwa == "wt")
+	else if (nazwa == "wt")
 		dzien = 2;
-	if (nazwa == "sr")
+	else if (nazwa == "sr")
 		dzien = 3;
-	if (nazwa == "czw")
+	else if (nazwa == "czw")
 		dzien = 4;
-	if (nazwa == "pt")
+	else if (nazwa == "pt")
 		dzien = 5;
 	lekcje.wpiszGodzine(dzien, godzina, ileKlas);
 	lekcje.wpiszObjekt (dzien, godzina, ileKlas);
@@ -182,8 +186,11 @@ void wyswietlPlan(Plan & lekcje)
 		}
 		for (int i = 0; i < 8; i++)
 		{
-			cout << "Godzina: " << i+1 << endl;
-			lekcje.wyswietl(k + 1, i + 1);
+			if(!(lekcje.sprawdzNull(k + 1, i + 1)))
+			{
+				cout << "Godzina: " << i+1 << endl;
+				lekcje.wyswietl(k + 1, i + 1);
+			}
 		}
 	}
 }
