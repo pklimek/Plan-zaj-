@@ -16,13 +16,13 @@ class Objekt
 public:
 	Objekt (string l, int sala, string prowadzacy, string k);			//konstruktor wstawiaj¹cy dane do objektu "objekt"
 	void wyswietl (void);											//Funkcja sk³adowa wypisuj¹ca zawartoœæ objektu "Objekt"
-	
+
 };
 
 class Godzina
-{	
+{
 	int ileKlas;
-	Objekt **tablica;												//Tablica wskaŸników na "Objekt"			
+	Objekt **tablica;												//Tablica wskaŸników na "Objekt"
 public:
 
 	Godzina (int a);

@@ -4,7 +4,7 @@
 
 
 
-int main() 
+int main()
 {
 	int ileKlas, b;
 	Godzina * wsk;
@@ -32,5 +32,5 @@ int main()
 		}
 	}
 
-	
+
 }

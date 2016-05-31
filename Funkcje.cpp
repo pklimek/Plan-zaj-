@@ -195,3 +195,4 @@ void wyswietlPlan(Plan & lekcje)
 	}
 }
 
+
