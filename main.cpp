@@ -11,6 +11,7 @@ int main()
 	cout << "Podaj dla ilu klas chcesz u³o¿yæ plan zajêæ: " << endl;
 	cin >> ileKlas;
 	Plan lekcje;
+
 	while (1)
 	{
 		system ("cls");
