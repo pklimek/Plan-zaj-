@@ -101,6 +101,8 @@ void Plan::wpiszObjekt (int dzien, int godzina, int ileKlas)
 }
 
 
+
+
 void Godzina::wpiszObjekt (int ileKlas)
 {
 	int sala;
