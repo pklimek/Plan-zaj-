@@ -11,7 +11,7 @@ Objekt::Objekt (string l, int sala, string prowadzacy, string k)		//definicja ko
 	przedmiot = k;
 }
 
-void Objekt::wyswietl(void)												//definicja funckji
+void Objekt::wyswietl(void)							//definicja funckji
 {
 	cout << "Klasa: " << nazwaKlasy;
 	cout << "	Sala: " << numerSali;
