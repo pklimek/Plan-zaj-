@@ -3,7 +3,7 @@
 #include "Header.h"
 
 
-Objekt::Objekt (string l, int sala, string prowadzacy, string k)	 	   //definicja konstruktora
+Objekt::Objekt (string l, int sala, string prowadzacy, string k)	 	     //definicja konstruktora
 {
 	nazwaKlasy = l;
 	numerSali = sala;
