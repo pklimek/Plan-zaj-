@@ -52,7 +52,7 @@ Plan::Plan ()
 	tydzien = new Godzina **[5];						  //5 dni tygodnia
 	for (int i; i < 5; i++)
 	{
-		tydzien [i] = new Godzina *[8];					//maksymalnie 8 godzin dziennie
+		tydzien [i] = new Godzina *[8];					  //maksymalnie 8 godzin dziennie
 		for (int k = 0; k < 8; k++)
 			tydzien [i][k] = NULL;
 	}
